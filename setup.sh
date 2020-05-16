@@ -1,5 +1,6 @@
 #!/bin/bash
-mkdir ~/github && git clone
-
+mkdir ~/github
+cd ~/github
+git clone https://github.com/nicholasburr/ansible-workstation.git
 pip install ansible --user
-
+cd  ~/github/ansible-workstation && ansible-playbook main.yml -bK
