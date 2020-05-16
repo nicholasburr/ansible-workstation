@@ -3,6 +3,7 @@
   connection: local
   tasks:
     - name: setup atom
-      include: tasks/atom.yml
-
-      
+      include: "tasks/{{ item }}"
+      with_items:
+        - ssh.yml
+        - atom.yml

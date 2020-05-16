@@ -1,7 +1,6 @@
 ---
 - name: install atom rpm
+  become: true
   yum:
-    name: "{{ item }}"
+    name: https://atom.io/download/rpm
     state: present
-  loop:
-    - https://atom.io/download/rpm

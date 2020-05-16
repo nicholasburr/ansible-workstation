@@ -1,0 +1,16 @@
+---
+- name: create id_rsa
+  copy:
+    src: files/id_rsa
+    dest: /home/{{ lookup('env', 'USER') }}/.ssh/id_rsa
+    mode: 0600
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
+
+- name: create id_rsa.pub
+  copy:
+    src: files/id_rsa.pub
+    dest: /home/{{ lookup('env', 'USER') }}/.ssh/id_rsa
+    mode: 0644
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
