@@ -1,0 +1,7 @@
+---
+- name: install atom rpm
+  yum:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - https://atom.io/download/rpm
