@@ -1,6 +1,0 @@
----
-- name: install atom rpm
-  become: true
-  yum:
-    name: https://atom.io/download/rpm
-    state: present

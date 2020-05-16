@@ -2,8 +2,18 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: setup atom
+    - name: install packages
+      dnf:
+        name: [
+              'https://atom.io/download/rpm',
+              'kubernetes-client',
+              'gnome-tweaks',
+              ]
+        state: present
+        update_cache: true
+      loop:
+        - https://atom.io/download/rpm
+    - name: setup tasks/*
       include: "tasks/{{ item }}"
       with_items:
         - ssh.yml
-        - atom.yml
