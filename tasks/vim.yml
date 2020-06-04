@@ -1,0 +1,24 @@
+---
+- name: install vim
+  become: true
+  dnf:
+    name: vim
+    state: present
+
+- name: setup themes directory
+  file:
+    path: "/home/{{ lookup('env', 'USER') }}/.vim/pack/themes/start"
+    state: directory
+
+- name: download dracula theme
+  git:
+    repo: https://github.com/dracula/vim.git
+    dest: "/home/{{ lookup('env', 'USER') }}/.vim/pack/themes/start/dracula"
+
+- name: create .vimrc
+  copy:
+    src: files/.vimrc
+    dest: "/home/{{ lookup('env', 'USER') }}/"
+    mode: 0664
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"

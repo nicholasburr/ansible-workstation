@@ -3,17 +3,21 @@
   connection: local
   tasks:
     - name: install packages
+      become: true
       dnf:
         name: [
               'https://atom.io/download/rpm',
               'kubernetes-client',
               'gnome-tweaks',
+              'dconf-devel',  # gnome-terminal dracula theme
               ]
         state: present
         update_cache: true
-      loop:
-        - https://atom.io/download/rpm
-    - name: setup tasks/*
-      include: "tasks/{{ item }}"
-      with_items:
-        - ssh.yml
+
+    - include: tasks/ssh.yml
+    - include: tasks/bash.yml
+    - include: tasks/vim.yml
+    - include: tasks/gnome.yml
+#    - include: tasks/firefox.yml
+#    - include: tasks/
+#    - include: tasks/

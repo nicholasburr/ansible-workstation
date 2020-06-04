@@ -1,0 +1,28 @@
+---
+- name: install required packages
+  become: true
+  dnf:
+    name: dconf-devel
+    state: present
+
+- name: download dracula theme(s) - git
+  git:
+    repo: "https://github.com/dracula/{{ item }}"
+    dest: "/tmp/dracula/{{ item }}"
+  loop:
+    - gnome-terminal
+    - vim
+    - atom
+    - firefox
+
+- name: create firefox extention
+  copy:
+    src: /tmp/dracula/firefox
+    dest: /tmp/dracula/firefox-dracula.xpi
+
+- name: install firefox addon
+  command:
+
+- name: install dracula theme(s)
+  command:
+    cmd: /tmp/dracula/gnome-terminal/install.sh

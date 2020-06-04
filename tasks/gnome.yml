@@ -1,0 +1,12 @@
+---
+- name: download dracula theme
+  git:
+    repo: https://github.com/dracula/gnome-terminal
+    dest: /tmp/gnome-terminal
+
+- name: run cofiguration commands
+  command:
+    cmd:
+      - gsettings set org.gnome.desktop.wm.preferences audible-bell false
+      - gsettings set org.gnome.desktop.wm.preferences visual-bell true
+      - gsettings set org.gnome.desktop.wm.preferences visual-bell-type frame-flash
