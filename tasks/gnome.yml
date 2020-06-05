@@ -4,3 +4,4 @@
     cmd:
       - gsettings set org.gnome.desktop.wm.preferences audible-bell false
       - gsettings set org.gnome.desktop.wm.preferences visual-bell false
+      - gsettings set org.gnome.desktop.interface enable-hot-corners false

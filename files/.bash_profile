@@ -13,7 +13,7 @@ export GIT_PS1_SHOWCOLORHINTS=true
 
 # prompt
 # I use Dracula theme for my terminal colours https://draculatheme.com
-export PS1='\[\e[0;36m\]\[\e[0;36m\] \W\[\033[0;35m\]$(__git_ps1 " (%s)")\[\e[0m\]: '
+export PS1='[\e[0;36m\]\[\e[0;36m\] \W\[\033[0;35m\]$(__git_ps1 " (%s)")\[\e[0m\]: '
 
 # aliases
 # weather and the moon
@@ -21,6 +21,6 @@ alias weather='curl -4 http://wttr.in/'
 alias moon='curl -4 http://wttr.in/Moon'
 
 # colours for `ls` command
-alias ls='ls -G'
+alias ls='ls --color'
 alias lsa='ls -la'
-#
+alias grep='grep --color'
