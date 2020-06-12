@@ -7,6 +7,14 @@
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ lookup('env', 'USER') }}"
 
+- name: create config
+  copy:
+    src: files/config
+    dest: /home/{{ lookup('env', 'USER') }}/.ssh/config
+    mode: 0600
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
+
 - name: create id_rsa.pub
   copy:
     src: files/id_rsa.pub

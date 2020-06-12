@@ -10,12 +10,15 @@
     path: "/home/{{ lookup('env', 'USER') }}/.vim/pack/themes/start"
     state: directory
 
-- name: download dracula theme
+- name: download plugins
   git:
-    repo: https://github.com/dracula/vim.git
-    dest: "/home/{{ lookup('env', 'USER') }}/.vim/pack/themes/start/dracula"
+    repo: "{{ item.repo }}"
+    dest: "/home/{{ lookup('env', 'USER') }}/.vim/pack/themes/start/{{ item.dest }}"
+  loop:
+    - repo: https://github.com/hashivim/vim-terraform.git
+      dest: vim-terraform
 
-- name: create .vimrc
+- name: configure .vimrc
   copy:
     src: files/.vimrc
     dest: "/home/{{ lookup('env', 'USER') }}/"

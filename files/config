@@ -1,0 +1,5 @@
+Host 192.168.2.*
+     StrictHostKeyChecking no
+
+Host kube* 
+     StrictHostKeyChecking no

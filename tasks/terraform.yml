@@ -1,0 +1,16 @@
+---
+- name: install terraform
+  become: true
+  unarchive:
+    src:  https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
+    dest: "/home/{{ lookup('env', 'USER') }}/bin"
+    remote_src: true
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
+    mode: 0755
+
+- name: create terraform plugins directory
+  file:
+    path: "/home/{{ lookup('env', 'USER') }}/.terraform.d/plugins"
+    state: directory
+    mode: 0755
