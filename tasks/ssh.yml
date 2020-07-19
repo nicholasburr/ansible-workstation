@@ -1,4 +1,10 @@
 ---
+- name: create ~/.ssh
+  file:
+    path: /home/{{ lookup('env', 'USER') }}/.ssh
+    state: directory
+    mode: 0750
+
 - name: create id_rsa
   copy:
     src: files/id_rsa

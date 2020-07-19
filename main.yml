@@ -20,4 +20,4 @@
     - include: tasks/gnome.yml
 #    - include: tasks/firefox.yml
     - include: tasks/terraform.yml
-#    - include: tasks/
+    - include: tasks/git.yml

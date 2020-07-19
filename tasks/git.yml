@@ -1,0 +1,6 @@
+---
+- name: configure git
+  command: "{{ item }}"
+  with_items:
+    - git config --global user.email "nbburr@gmail.com"
+    - git config --global user.name "Nicholas Burr"
